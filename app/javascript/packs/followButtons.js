@@ -65,7 +65,7 @@ function addAriaLabelToButton({ button, followType, followName, style = '' }) {
       pressed = 'false';
       break;
     case 'following':
-      label = `Follow ${followType.toLowerCase()}: ${followName}`;
+      label = `Unfollow ${followType.toLowerCase()}: ${followName}`;
       pressed = 'true';
       break;
     case 'self':
@@ -76,6 +76,7 @@ function addAriaLabelToButton({ button, followType, followName, style = '' }) {
       pressed = 'false';
   }
   button.setAttribute('aria-label', label);
+  button.setAttribute('title', label);
   pressed.length === 0
     ? button.removeAttribute('aria-pressed')
     : button.setAttribute('aria-pressed', pressed);
